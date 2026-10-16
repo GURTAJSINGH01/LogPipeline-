@@ -1,0 +1,23 @@
+# LogPipeline — Concurrent Log Processing System
+
+## Problem Statement
+
+Backend applications generate large volumes of logs containing informational messages, warnings, errors, and diagnostic events. Manually analysing these logs becomes time-consuming as log files grow, making it difficult for developers to identify failures, understand system behaviour, and obtain useful statistics quickly.
+
+LogPipeline addresses this problem by providing a lightweight, file-based log-processing system implemented in Go. It reads log entries, parses structured fields, filters records according to configurable criteria, processes records concurrently using worker pools, and generates summaries of log levels and processing results.
+
+The system also provides a sequential processing mode to compare its performance against concurrent processing. This allows the impact of concurrency to be measured rather than assumed.
+
+## Objectives
+
+- Automate the parsing and filtering of application log files.
+- Count log entries by severity, such as INFO, WARN, ERROR, and DEBUG.
+- Support keyword-based filtering and useful error summaries.
+- Use Go goroutines and channels to implement concurrent processing.
+- Handle malformed entries and file errors without crashing unexpectedly.
+- Measure processing time and compare sequential and concurrent execution.
+- Provide reproducible tests, sample input files, and documented execution commands.
+
+## Scope
+
+The initial version is a local command-line application that processes existing log files. It is not intended to be a full observability platform, log database, or real-time distributed logging service.
